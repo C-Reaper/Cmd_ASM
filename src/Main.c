@@ -1,21 +1,21 @@
-#include "/home/codeleaded/System/Static/Library/IRRuntime.h"
+#include "/home/codeleaded/System/Static/Library/ASMRuntime.h"
 
 int main(int argc,char** argv){
     //if(argc < 2){
-    //    printf("[IRRuntime]: Arguments -> Usage: irr <.iralx>\n");
+    //    printf("[ASMRuntime]: Arguments -> Usage: irr <.iralx>\n");
     //    return 0;
     //}
 
-    IRRuntime irr = IRRuntime_New("./code/IntraIR.iralx","./bin");
-    IRRuntime_Print(&irr);
+    ASMRuntime irr = ASMRuntime_New("./code/IntraASM.iralx","./bin");
+    ASMRuntime_Print(&irr);
 
     Variable params[] = {
         Variable_Make(".RETURN","int",(Number[]){ 0LL },sizeof(Number),-1,NULL,NULL),
         VARIABLE_END
     };
-    IRRuntime_Function(&irr,"main",params);
-    //IRRuntime_PrintVariable(&irr,params + 0);
+    ASMRuntime_Function(&irr,"main",params);
+    //ASMRuntime_PrintVariable(&irr,params + 0);
 
-    IRRuntime_Free(&irr);
+    ASMRuntime_Free(&irr);
     return 0;
 }
